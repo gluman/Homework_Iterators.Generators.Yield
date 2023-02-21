@@ -6,14 +6,26 @@
 class FlatIterator:
 
     def __init__(self, list_of_list):
-        ...
+        self.list_of_list = list_of_list
+
 
     def __iter__(self):
-        ...
+        self.ln_main = len(self.list_of_list)
+        self.cursor = 0
         return self
 
     def __next__(self):
-        ...
+        try:
+            object = iter(self.list_of_list(self.cursor))
+        except TypeError:
+            item.append(self.list_of_list(self.cursor))
+        else:
+            shild_list = FlatIterator(self.list_of_list(self.cursor))
+        self.cursor += 1
+
+        if self.cursor == self.ln_main:
+            raise StopIteration
+
         return item
 
 
