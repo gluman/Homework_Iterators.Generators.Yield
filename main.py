@@ -12,7 +12,7 @@ class FlatIterator:
     def __iter__(self):
         self.ln_main = len(self.list_of_list)
         self.cursor = 0
-        self.sec_cursor = 0
+        self.templist = []
 
         return self
 
@@ -22,20 +22,16 @@ class FlatIterator:
             raise StopIteration
 
         if type(self.list_of_list[self.cursor]) == list:
-            ln_sec = len(self.list_of_list[self.cursor])
-            if self.sec_cursor < ln_sec:
-                item = self.list_of_list[self.cursor][self.sec_cursor]
-                self.sec_cursor += 1
-            else:
-                self.cursor += 1
-                self.sec_cursor = 0
-                self.__next__()
-                return item
+            if len(self.list_of_list[self.cursor]) > 1:
+                element = self.list_of_list[self.cursor].pop(0)
+                if type(element) == list:
+                    item = FlatIterator(element)
+                else:
+                    item = element
 
         else:
             item = self.list_of_list[self.cursor]
             self.cursor += 1
-            self.sec_cursor = 0
         return item
 
 
