@@ -27,22 +27,16 @@ class FlatIterator:
                 item = self.list_of_list[self.cursor][self.sec_cursor]
                 self.sec_cursor += 1
             else:
-                item = FlatIterator
                 self.cursor += 1
                 self.sec_cursor = 0
+                self.__next__()
+                return item
 
         else:
             item = self.list_of_list[self.cursor]
             self.cursor += 1
             self.sec_cursor = 0
         return item
-
-
-
-
-
-
-
 
 
 def test_1():
