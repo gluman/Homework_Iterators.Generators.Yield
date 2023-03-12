@@ -11,7 +11,7 @@ class FlatIterator:
 
     def __iter__(self):
         self.ln_main = len(self.list_of_list)
-        self.cursor = 0
+        self.cursor1 = 0
         self.templist = []
 
         return self
