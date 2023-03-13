@@ -8,7 +8,6 @@ class FlatIterator:
     def __init__(self, list_of_list):
         self.list_of_list = list_of_list
 
-
     def __iter__(self):
         self.ln_main = len(self.list_of_list)
         self.cursor1 = 0
